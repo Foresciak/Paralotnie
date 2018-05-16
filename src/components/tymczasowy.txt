@@ -1,0 +1,90 @@
+import React from 'react';
+import './Home.css';
+
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      opacity: 0,
+    }
+  }
+
+
+  componentDidMount() {
+      this.timerID = setInterval(
+        () => {this.tick();console.log(this.state.opacity)},
+        100
+      );
+      setTimeout(
+        () => clearInterval(this.timerID),
+        1000
+      );
+    }
+
+    tick() {
+      this.setState({
+        opacity: this.state.opacity+0.1
+      });
+    }
+
+  render() {
+    return (
+      <div className = "home">
+        <div className = "aboutMe">
+          <div className = "describe"><p>Chciałbym zabrać Cię w podniebną podróż nad Lubinem</p> </div>
+          <div className = "myPhoto"><img src="../../img/home_tato.png" alt="" style={{opacity: this.state.opacity}}/></div>
+        </div>
+        <div className = "photos">
+          <img src="../../img/marzec.jpg" alt=""/>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Home;
+
+import React from 'react';
+import './App.css';
+import Navbar from '../Navbar/Navbar';
+import Home from '../Home/Home';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      navChoice: 0
+    }
+    this.chooseNav = this.chooseNav.bind(this);
+  }
+
+  chooseNav(choice) {
+    this.setState({navChoice: choice});
+  }
+
+  wybor(param) {
+    switch(param){
+      case 0: return(
+                  <Home/>
+              );
+              break;
+      case 1: return(
+                  <div>Gift</div>
+              )
+              break;
+      default: return (
+                  <div>blad</div>
+               )
+   };}
+
+  render() {
+    return (
+      <div className="App">
+
+        <div className="content"><Navbar onChooseNav={this.chooseNav}/>{this.wybor(this.state.navChoice)}</div>
+      </div>
+    );
+  }
+}
+
+export default App;

@@ -1,0 +1,63 @@
+.home {
+  display: inline-block;
+  width:100%;
+  background-color: white;
+}
+
+.aboutMe {
+  width:100%;
+  display: inline;
+}
+
+.describe {
+  float: left;
+  width:50%;
+  background-color: white;
+  font-family: Caveat;
+}
+
+p {
+  font-size: 3rem;
+  padding-right: 1em;
+}
+
+.myPhoto {
+  float: left;
+  width:50%;
+
+  background-color: white;
+
+}
+
+.myPhoto img {
+  width:100%;
+  min-width:300px;
+}
+
+.photos {
+  width:100%;
+  background-color: white;
+  clear:both;
+}
+
+.photos img {
+  width:100%;
+}
+
+
+/*średni telefon lub IPad*/
+@media only screen and (max-width: 680px) {
+  .home {
+    width: 100%;
+    float: none;
+    text-align: center;
+   }
+    .describe {
+      width:100%;
+    }
+   .myPhoto {
+     float: none;
+     width: 100%;
+    }
+
+}

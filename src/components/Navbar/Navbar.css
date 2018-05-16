@@ -1,0 +1,20 @@
+.navbar-nav {
+  display: inline-block;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2em;
+  margin: 2em 0.5em;
+}
+
+.navbar {
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+
+}
+
+header {
+  width: 100%;
+  text-align: center;
+
+}
